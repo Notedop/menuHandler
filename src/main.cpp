@@ -3,21 +3,22 @@
 #include <MenuPage.h>
 #include <StartPageAction.h>
 
-StartPageAction STARTACTION;
-MenuPage test(STARTACTION);
-MenuHandler menu(test);
-
+PageAction * STARTACTION = new StartPageAction() ;
+MenuPage * initialPage;
+MenuHandler * menu;
 
 void setup() {
-  // put your setup code here, to run once:
-  String value = "blabla";
-
-  test.setText(value);
-  menu.start();
- // start.show();
+  //Setup your initial page
+  String * pvalue = new String("Initial page loaded");
+  initialPage = new MenuPage(STARTACTION);
+  initialPage->setText(pvalue);
+  
+  //Pass initial page to your pageHandler
+  menu = new MenuHandler(initialPage);
+ 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  //Start the menu
+   menu->start();
   }

@@ -2,7 +2,11 @@
 
 void StartPageAction::start() {
    //do something
-}
+   Serial.begin(9600);
+   Serial.println("Startpage action executed");
+   Serial.end();
+   
+   }
 
 void StartPageAction::stop() {
    //do something

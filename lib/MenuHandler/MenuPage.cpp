@@ -4,32 +4,31 @@
 
 //base class for menuPage
 
-MenuPage::MenuPage() {
-    //empty
-}
 
-MenuPage::MenuPage(PageAction& actionObject) {
+MenuPage::MenuPage(PageAction * actionObject) {
     //_actionObject = actionObject;
-    this->c_actionObject = &actionObject;
+    c_actionObject = &actionObject;
+    (*c_actionObject)->start();
 }
 
-bool MenuPage::setText(String &textBuffer) {
+bool MenuPage::setText(String * textBuffer) {
 
     Serial.begin(9600);
     Serial.print("Textbuffer: ");
-    Serial.println(textBuffer);
-    this->c_textBuffer = textBuffer;
+    Serial.println(*textBuffer);
+    c_textBuffer = &textBuffer;
     Serial.print("C_Textbuffer: ");
-    Serial.println(this->c_textBuffer);
+    Serial.println(**c_textBuffer);
     Serial.end();
     return true;
 }
 
 bool MenuPage::show() {
-   
+
     Serial.begin(9600);
     Serial.print("C_Textbuffer: ");
-    Serial.println(this->c_textBuffer);
+    //String output = c_textBuffer;
+    Serial.println(**c_textBuffer);
     Serial.end();
-    return true;   
+    return true;
 }

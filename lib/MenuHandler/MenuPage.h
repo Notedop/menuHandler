@@ -8,15 +8,14 @@
 
 class MenuPage {
     public:
-        MenuPage();
-        MenuPage(PageAction& actionObject);
-        bool setText(String &text);
+        MenuPage(PageAction * actionObject);
+        bool setText(String * text);
         bool show();
 
         
     protected:
-        String c_textBuffer;
-        PageAction* c_actionObject;    
+        String ** c_textBuffer;
+        PageAction ** c_actionObject;    
     };
 
 #endif

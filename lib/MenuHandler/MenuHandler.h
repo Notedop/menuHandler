@@ -9,14 +9,14 @@
 class MenuHandler {
 
     public:
-        MenuHandler(MenuPage page);
+        MenuHandler(MenuPage * page);
         void start();
         bool writeMenuItem();
         bool actionAvailable();
 
         enum ACTION {START, STOP, NEXT, PREVIOUS};
     private:
-        MenuPage c_currentPage;
+        MenuPage ** c_currentPage;
 };
 
 #endif
