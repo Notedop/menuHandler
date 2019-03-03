@@ -7,7 +7,7 @@
     class SerialInputHandler : public InputHandler {
 
     public:
-        SerialInputHandler();
+    //TODO: Create constructor to define mapping between ACTION and the string read from serial.
         bool hasInput();
         ACTION getInputAction();
     };

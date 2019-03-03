@@ -1,12 +1,14 @@
 #include <SerialInputHandler.h>
 #include <Arduino.h>
 
+//TODO: Create constructor to define mapping between ACTION and the string read from serial.
+
 bool SerialInputHandler::hasInput() {
-   //do something
     char command;
     do
         {
-        command = toupper (Serial.read ());
+        command = toupper (Serial.read());
+        //TODO: amend to accept multiple characters
         } while (command != '1' && command != '2' && command != '3' && command != '4');
     switch (command)
     {

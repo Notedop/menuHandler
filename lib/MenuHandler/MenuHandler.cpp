@@ -18,27 +18,33 @@ void MenuHandler::start() {
      
         //read input
         //TODO: Create inputHandler object which returns an action that requires to be executed
-        char command;
-        do
+        while((*c_currentPage)->c_inputHandler->hasInput()) {
+            
+            switch ((*c_currentPage)->c_inputHandler->getInputAction())
             {
-            command = toupper (Serial.read ());
-            } while (command != '1' && command != '2' && command != '3');
-        Serial.println("Received command");
-        Serial.println(command);
-        switch (command)
-        {
-            case '1':
-                /* code */
-                Serial.println("In switch command");
-                command = '0';
-                
-                break;
-        
-            default:
-                break;
-        }        
-    }
+                case ACTION::START:
+                    Serial.println(F("Start action choosen"));
+                    //TODO: Execute action
+                    //TODO: Get new menupage from action 
+                    //TODO: Clear memory and update c_currentpage.
+                    break;
+                case ACTION::NEXT:
+                    Serial.println(F("Next action choosen"));
+                    break;
+                case ACTION::PREVIOUS:
+                    Serial.println(F("Previous action choosen"));
+                    break;
+                case ACTION::STOP:
+                    Serial.println(F("Stop action choosen"));
+                    break;
+                default:
+                    break;
+            }
+            
 
+        }
+
+    };
     Serial.end();
 }
 

@@ -1,13 +1,15 @@
 #include <Arduino.h>
 #include <MenuPage.h>
 #include <PageAction.h>
+#include <SerialInputHandler.h>
 
 //base class for menuPage
 
 
 MenuPage::MenuPage(PageAction * actionObject) {
-    //_actionObject = actionObject;
     c_actionObject = &actionObject;
+    //TODO: get inputhandler from constructor
+    c_inputHandler = new SerialInputHandler();
     (*c_actionObject)->start();
 }
 

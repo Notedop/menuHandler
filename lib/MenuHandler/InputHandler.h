@@ -13,8 +13,6 @@
 
     protected:
         ACTION currentAction;
-        
-
     };
 
 #endif

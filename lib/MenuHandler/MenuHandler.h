@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <MenuPage.h>
+#include <SerialInputHandler.h>
 
 //base class for menuHandler
 
