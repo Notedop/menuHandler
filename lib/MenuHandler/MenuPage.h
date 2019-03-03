@@ -11,7 +11,7 @@ class MenuPage {
         MenuPage(PageAction * actionObject);
         bool setText(String * text);
         bool show();
-
+        
         
     protected:
         String ** c_textBuffer;

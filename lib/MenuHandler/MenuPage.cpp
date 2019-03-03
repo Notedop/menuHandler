@@ -13,22 +13,29 @@ MenuPage::MenuPage(PageAction * actionObject) {
 
 bool MenuPage::setText(String * textBuffer) {
 
+#ifdef DEBUG 
     Serial.begin(9600);
     Serial.print("Textbuffer: ");
     Serial.println(*textBuffer);
+#endif
+
     c_textBuffer = &textBuffer;
+
+#ifdef DEBUG 
     Serial.print("C_Textbuffer: ");
     Serial.println(**c_textBuffer);
     Serial.end();
+#endif
     return true;
 }
 
 bool MenuPage::show() {
 
-    Serial.begin(9600);
+
+ /* Serial.begin(9600);
     Serial.print("C_Textbuffer: ");
-    //String output = c_textBuffer;
+    String output = c_textBuffer;*/
     Serial.println(**c_textBuffer);
-    Serial.end();
+    //Serial.end();
     return true;
 }

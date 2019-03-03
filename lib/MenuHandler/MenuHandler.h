@@ -13,8 +13,7 @@ class MenuHandler {
         void start();
         bool writeMenuItem();
         bool actionAvailable();
-
-        enum ACTION {START, STOP, NEXT, PREVIOUS};
+        //enum ACTION {START, STOP, NEXT, PREVIOUS};
     private:
         MenuPage ** c_currentPage;
 };

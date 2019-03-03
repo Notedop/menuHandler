@@ -5,6 +5,7 @@
 
 class StartPageAction : public PageAction {
     public:        
+        
         void start();
         void stop();
         void next();
