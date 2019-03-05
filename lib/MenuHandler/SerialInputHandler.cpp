@@ -1,42 +1,39 @@
 #include <SerialInputHandler.h>
 #include <Arduino.h>
 
-//TODO: Create constructor to define mapping between ACTION and the string read from serial.
+struct map {
+    String input;
+    ACTION output;
+};
+
+struct map actionMap[] {    {"1", ACTION::START}, 
+                            {"2", ACTION::NEXT},
+                            {"3", ACTION::PREVIOUS},
+                            {"4", ACTION::STOP} };
 
 bool SerialInputHandler::hasInput() {
-    char command;
+
+    String command;
+    bool commandAvailable  = false;
     do
-        {
-        command = toupper (Serial.read());
-        //TODO: amend to accept multiple characters
-        } while (command != '1' && command != '2' && command != '3' && command != '4');
-    switch (command)
-    {
-        case '1':
-            /* code */
-            this->currentAction = ACTION::START;
-            command = '0';
-            break;
-        case '2':
-            /* code */
-            this->currentAction = ACTION::NEXT;
-            command = '0';
-            break;
-        case '3':
-            /* code */
-            this->currentAction = ACTION::PREVIOUS;
-            command = '0';
-            break;
-        case '4':
-            /* code */
-            this->currentAction = ACTION::STOP;
-            command = '0';
-            break;
-        default:
-            return false;
-            break;
+        {//TODO: amend to accept multiple characters
+            if (Serial.available()>0) {
+                command = Serial.readStringUntil('\n');
+                commandAvailable = true;
+            }
+        } while (!commandAvailable);
+    
+    commandAvailable  = false;
+
+    for (struct map getAction : actionMap) {
+        //do stuff
+        if (getAction.input.equals(command)) {
+            this->currentAction = getAction.output;
+            return true;
+        }
     }
-   return true;
+
+    return false;
 }
 
 ACTION SerialInputHandler::getInputAction() {
