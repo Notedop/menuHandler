@@ -5,7 +5,8 @@
 
 class StartPageAction : public PageAction {
     public:        
-        
+    StartPageAction(ACTIONMAP map[])                                      
+        : PageAction(map) {} 
         void start();
         void stop();
         void next();

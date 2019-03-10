@@ -11,6 +11,10 @@ MenuPage::MenuPage(PageAction * actionObject) {
     //TODO: get inputhandler from constructor
     c_inputHandler = new SerialInputHandler();
     (*c_actionObject)->start();
+    Serial.begin(9600);
+    Serial.println("testing input: ");
+    Serial.print((*c_actionObject)->c_map.input); //not accessin array here, I know...
+    Serial.end();
 }
 
 bool MenuPage::setText(String * textBuffer) {

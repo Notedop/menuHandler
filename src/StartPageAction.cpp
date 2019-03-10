@@ -1,7 +1,5 @@
 #include <StartPageAction.h>
 
-
-
 void StartPageAction::start() {
    //do something
    Serial.println("Startpage start action executed");
